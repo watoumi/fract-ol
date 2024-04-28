@@ -14,13 +14,10 @@
 
 int	main(int ac, char **av)
 {
-
 	t_fractol	fractol;
 
-
-	if ((2 == ac && !ft_strncmp(av[1], "mandelbrot", 10)) ||
-    (4 == ac && !ft_strncmp(av[1], "julia", 5)))
-
+	if ((2 == ac && !ft_strncmp(av[1], "mandelbrot", 10)) || (4 == ac
+			&& !ft_strncmp(av[1], "julia", 5)))
 	{
 		fractol.name = av[1];
 		if (!ft_strncmp(fractol.name, "julia", 5))
@@ -29,7 +26,6 @@ int	main(int ac, char **av)
 			fractol.julia_y = atodbl(av[3]);
 		}
 		fractol_init(&fractol);
-
 		fractol_render(&fractol);
 		mlx_key_hook(fractol.mlx_window, keyhook, &fractol);
 		mlx_loop_hook(fractol.mlx_connection, fractol_render, &fractol);
